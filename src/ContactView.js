@@ -5,7 +5,8 @@ import {
   Title,
   Text,
   Card,
-  CardItem
+  CardItem,
+  Button
 } from 'native-base'
 
 export default class ContactView extends Component {
@@ -29,6 +30,9 @@ export default class ContactView extends Component {
             </CardItem>
           </Card>
         </Content>
+        <Button full danger>
+          <Text> DELETE </Text>
+        </Button>
       </Container>
     );
   }

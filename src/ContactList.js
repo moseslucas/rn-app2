@@ -3,6 +3,9 @@ import {
   Container,
   Body,
   Header,
+  Right,
+  Left,
+  Button,
   Content,
   List,
   ListItem,
@@ -18,6 +21,7 @@ export default class ContactList extends Component {
 
   constructor () {
     super()
+    this.save = this.save.bind(this)
     this.state = {
       data: [
         {
@@ -43,13 +47,27 @@ export default class ContactList extends Component {
     // this.setState({ data })
   // }
 
+  save (newContact) {
+    const { data } = this.state
+    newData = data.concat(newContact)
+    this.setState({ data: newData })
+  }
+
   render() {
     return (
       <Container>
         <Header>
+          <Left />
           <Body>
             <Title> Contact List </Title>
           </Body>
+          <Right>
+            <Button transparent onPress={
+              _ => this.props.navigation.navigate('ContactForm', { save: this.save })
+            }>
+              <Text> New </Text>
+            </Button>
+          </Right>
         </Header>
         <Content padder>
           <List dataArray={this.state.data}
