@@ -10,7 +10,12 @@ import {
   Text
 } from 'native-base'
 import { Alert } from 'react-native'
-export default class Contact extends Component {
+
+export default class ContactList extends Component {
+  static navigationOptions = {
+    header: null
+  }
+
   constructor () {
     super()
     this.state = {
@@ -31,6 +36,7 @@ export default class Contact extends Component {
     }
   }
 
+
   // async componentDidMount () {
     // let data = await fetch('http://mosesito.herokuapp.com/api/v1/categories')
     // data = await data.json()
@@ -48,7 +54,11 @@ export default class Contact extends Component {
         <Content padder>
           <List dataArray={this.state.data}
             renderRow = {item =>
-              <ListItem button onPress={_ => Alert.alert(item.name)}>
+              <ListItem button onPress={
+                _ => {
+                  this.props.navigation.navigate('ContactView', {contact: item})
+                }
+              }>
                 <Text>{item.name}</Text>
               </ListItem>
             }>

@@ -1,22 +1,35 @@
 import React, { Component } from 'react'
 import {
   Container,
-  Header,
-  Body,
   Content,
-  Title
-} from 'react-native'
+  Title,
+  Text,
+  Card,
+  CardItem
+} from 'native-base'
 
 export default class ContactView extends Component {
-  render () {
+  render() {
+    const { contact } = this.props.navigation.state.params
     return (
       <Container>
-        <Header>
-          <Body>
-            <Title> Contact View </Title>
-          </Body>
-        </Header>
+        <Content padder>
+          <Card>
+            <CardItem bordered header>
+              <Text> {contact.name} </Text>
+            </CardItem>
+            <CardItem bordered>
+              <Text> {contact.email} </Text>
+            </CardItem>
+            <CardItem bordered>
+              <Text> {contact.mobile} </Text>
+            </CardItem>
+            <CardItem bordered>
+              <Text> {contact.description} </Text>
+            </CardItem>
+          </Card>
+        </Content>
       </Container>
-    )
+    );
   }
 }
