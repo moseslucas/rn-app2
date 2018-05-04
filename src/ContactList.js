@@ -70,16 +70,18 @@ export default class ContactList extends Component {
           </Right>
         </Header>
         <Content padder>
-          <List dataArray={this.state.data}
-            renderRow = {item =>
-              <ListItem button onPress={
-                _ => {
-                  this.props.navigation.navigate('ContactView', {contact: item})
-                }
-              }>
-                <Text>{item.name}</Text>
-              </ListItem>
-            }>
+          <List>
+            {this.state.data.map( (item, i) => {
+              return (
+                <ListItem button key={i} onPress={
+                  _ => {
+                    this.props.navigation.navigate('ContactView', {contact: item})
+                  }
+                }>
+                  <Text>{item.name}</Text>
+                </ListItem>
+              )
+            })}
           </List>
         </Content>
       </Container>
