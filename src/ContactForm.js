@@ -24,7 +24,7 @@ export default class ContactForm extends Component {
   }
 
   handleInput(name, value) {
-    this.setState({ [name]: value },_=> console.log(this.state))
+    this.setState({ [name]: value })
   }
 
   handleSave () {

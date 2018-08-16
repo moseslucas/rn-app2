@@ -41,6 +41,7 @@ export default class ContactList extends Component {
   }
 
 
+  // this how to get real data from an API
   // async componentDidMount () {
     // let data = await fetch('http://mosesito.herokuapp.com/api/v1/categories')
     // data = await data.json()
